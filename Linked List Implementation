@@ -1,0 +1,36 @@
+class node:
+    def __init__(self, Data):
+        self.Data=Data
+        self.next=None
+
+class ls:
+    def __init__(self):
+        self.head=None
+    def append(self,Data):
+        new_node=node(Data)
+        if self.head==None:
+            self.head=new_node
+            return
+        last_node=self.head
+        while last_node.next:
+            last_node=last_node.next
+        last_node.next=new_node
+    def add_to_each_node(self, value_to_add):
+        current_node = self.head
+        while current_node:
+            current_node.Data += value_to_add
+            current_node = current_node.next
+    def display(self):
+        cur=self.head
+        while cur:
+            print(cur.Data)
+            cur = cur.next
+        print("we done")
+
+myls=ls()
+myls.append(4)
+myls.append(2)
+myls.append(4)
+myls.append(7)
+myls.add_to_each_node(6)
+myls.display()
